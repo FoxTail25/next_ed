@@ -32,8 +32,16 @@ interface Test {
 }
 
 
-function printD(coord: d3iPoint): string {
-	return coord.x + coord.y
+function printD(coord: Test): string {
+	return coord.a + coord.b
 }
 
-console.log(printD({ x: 4, y: 'z', z: 5 }))
+console.log(printD({ a: 4, b: 'z' }))
+
+
+// Каст типов
+const c = (point: iPoint) => {
+	const d: d3iPoint = point as d3iPoint // конвертация типов
+}
+
+const myCanvas = document.getElementById('canvas') as HTMLCanvasElement  // Если мы не закастуем (не допишем as HTMLCanvasElement) то втунти переменной myCanvas будет либо HTMLElement либо null)
